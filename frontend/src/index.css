@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/* :root { */
+  /* Primary */
+  /* --color-primary: #313647; */
+  /* --color-primary-hover: #272C3A; */
+
+  /* Secondary */
+  /* --color-secondary: #435663; */
+  /* --color-secondary-hover: #374752; */
+
+  /* Background & Text */
+  /* --color-background: #FFF8D4; */
+  /* --color-text: #313647; */
+
+  /* Accent */
+  /* --color-accent: #A3B087; */
+/* } */
+
+/* Completely Hide Scrollbar But Keep Scroll Working */
+.no-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.no-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
