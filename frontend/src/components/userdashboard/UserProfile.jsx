@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useAuth } from "../../context/AuthContext";
-import UserImage from "../../assets/userImage.jpg";
+// import UserImage from "../../assets/userImage.jpg";
 import { FaCamera, FaPhoneAlt } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import ResetPasswordModal from "./modals/ResetPasswordModal";

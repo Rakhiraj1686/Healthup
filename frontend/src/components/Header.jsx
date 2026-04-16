@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import api from "../config/Api";
 
 const Header = () => {
-  const { user, isLogin, setUser, setIsLogin } = useAuth();
+  const { user, isLogin, setUser } = useAuth();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
@@ -16,8 +16,7 @@ const Header = () => {
     const res = await api.get("/auth/logout");
     toast.success(res.data.message);
     sessionStorage.removeItem("HealthUP");
-    setUser("");
-    setIsLogin(false);
+    setUser(null);
     navigate("/");
   };
 
