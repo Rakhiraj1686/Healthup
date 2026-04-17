@@ -2,19 +2,61 @@ import mongoose from "mongoose";
 
 const workoutLogSchema = new mongoose.Schema(
   {
+    // Shared owner field
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
       index: true,
     },
+
+    // From userWorkoutPlan schema
+    weekStartDate: {
+      type: Date,
+      default: null,
+    },
+    days: [
+      {
+        dayName: String,
+        focus: String,
+        exercises: [
+          {
+            name: String,
+            sets: Number,
+            reps: String,
+            rest: String,
+            formGuide: String,
+          },
+        ],
+      },
+    ],
+
+    // From Workout schema
+    day: {
+      type: String,
+      default: null,
+    },
+    exercise: {
+      type: String,
+      default: null,
+    },
+    sets: {
+      type: Number,
+      default: null,
+    },
+    reps: {
+      type: mongoose.Schema.Types.Mixed,
+      default: null,
+    },
+
+    // Existing workout log fields
     planWorkoutId: {
       type: String,
-      required: true,
+      default: null,
     },
     scheduledDate: {
       type: Date,
-      required: true,
+      default: null,
       index: true,
     },
     completedAt: {
@@ -24,7 +66,7 @@ const workoutLogSchema = new mongoose.Schema(
     status: {
       type: String,
       enum: ["completed", "missed", "skipped", "rest"],
-      required: true,
+      default: null,
     },
     effortRpe: {
       type: Number,
@@ -43,6 +85,7 @@ const workoutLogSchema = new mongoose.Schema(
 );
 
 workoutLogSchema.index({ user: 1, scheduledDate: 1 });
+workoutLogSchema.index({ user: 1, weekStartDate: 1 });
 
 const WorkoutLog = mongoose.model("WorkoutLog", workoutLogSchema);
 

@@ -51,6 +51,18 @@ const dailyProgressSchema = new mongoose.Schema(
       max: 100,
       default: 0,
     },
+    workoutAdherencePercent: {
+      type: Number,
+      min: 0,
+      max: 100,
+      default: 0,
+    },
+    habitScore: {
+      type: Number,
+      min: 0,
+      max: 100,
+      default: 0,
+    },
     habitAdherencePercent: {
       type: Number,
       min: 0,
@@ -96,6 +108,10 @@ const dailyProgressSchema = new mongoose.Schema(
       max: 100,
       default: 0,
     },
+    // Legacy progress fields retained for backward compatibility.
+    weight: Number,
+    bmi: Number,
+    bodyFat: Number,
     weekKey: {
       type: String,
       index: true,

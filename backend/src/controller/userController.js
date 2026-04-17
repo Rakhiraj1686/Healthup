@@ -8,7 +8,7 @@ import {
   runWeeklyPlanAdjustmentForUser,
 } from "../services/planAdjustmentService.js";
 import Ticket from "../model/ticketModel.js";
-import Progress from "../model/userProgressModel.js";
+import Progress from "../model/DailyProgress.js";
 import UserGoalLog from "../model/userGoal.js";
 import {
   calculateBMR,
